@@ -9,14 +9,14 @@ scalaVersion := "2.12.10"
 
 crossScalaVersions := Seq("2.12.10")
 
-sparkPackageName := "databricks/spark-sql-perf"
+//sparkPackageName := "databricks/spark-sql-perf"
 
 // All Spark Packages need a license
 licenses := Seq("Apache-2.0" -> url("http://opensource.org/licenses/Apache-2.0"))
 
-sparkVersion := "3.0.0"
+val sparkVersion = "3.0.0"
 
-sparkComponents ++= Seq("sql", "hive", "mllib")
+//sparkComponents ++= Seq("sql", "hive", "mllib")
 
 
 initialCommands in console :=
@@ -39,6 +39,12 @@ libraryDependencies += "com.twitter" %% "util-jvm" % "6.45.0" % "provided"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 
 libraryDependencies += "org.yaml" % "snakeyaml" % "1.23"
+
+libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % "provided"
+
+libraryDependencies += "org.apache.spark" %% "spark-mllib" % sparkVersion % "provided"
+
+libraryDependencies += "org.apache.spark" %% "spark-hive" % sparkVersion % "provided"
 
 fork := true
 
